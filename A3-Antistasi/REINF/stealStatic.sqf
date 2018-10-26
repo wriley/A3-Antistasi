@@ -9,7 +9,7 @@ if (alive gunner _estatica) exitWith {hint "You cannot steal a static weapon whe
 
 if ((alive assignedGunner _estatica) and (!isPlayer (assignedGunner _estatica))) exitWith {hint "The gunner of this static weapon is still alive"};
 
-if (activeGREF and ((typeOf _estatica == staticATBuenos) or (typeOf _estatica == staticAABuenos))) exitWith {hint "This weapon cannot be dissassembled"};
+if (activeGREF and ((typeOf _estatica == staticATBuenos) or (typeOf _estatica == staticAABuenos))) exitWith {hint "This weapon cannot be disassembled"};
 
 _cercano = [marcadores,_estatica] call BIS_fnc_nearestPosition;
 
@@ -34,6 +34,8 @@ switch _tipoEst do
 	case SDKMortar: {_tipoB1 = MortStaticSDKB; _tipoB2 = soporteStaticSDKB3};
 	};
 
+if ((_tipoB1 == "not_supported") or (_tipoB2 == "not_supported")) exitWith {hint "Weapon stolen but packing is not supported so it just vanished"};
+    
 _posicion1 = [_jugador, 1, (getDir _jugador) - 90] call BIS_fnc_relPos;
 _posicion2 = [_jugador, 1, (getDir _jugador) + 90] call BIS_fnc_relPos;
 
