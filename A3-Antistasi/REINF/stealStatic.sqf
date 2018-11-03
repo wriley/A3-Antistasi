@@ -34,7 +34,7 @@ switch _tipoEst do
 	case SDKMortar: {_tipoB1 = MortStaticSDKB; _tipoB2 = soporteStaticSDKB3};
 	};
 
-if ((_tipoB1 == "not_supported") or (_tipoB2 == "not_supported")) exitWith {hint "Weapon stolen but packing is not supported so it just vanished"};
+if ((_tipoB1 == "not_supported") or (_tipoB2 == "not_supported")) exitWith {deleteVehicle _estatica; hint "Weapon stolen but packing is not supported so it just vanished"};
     
 _posicion1 = [_jugador, 1, (getDir _jugador) - 90] call BIS_fnc_relPos;
 _posicion2 = [_jugador, 1, (getDir _jugador) + 90] call BIS_fnc_relPos;
