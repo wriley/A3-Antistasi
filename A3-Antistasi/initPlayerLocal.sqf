@@ -1,3 +1,6 @@
+// run on headless clients
+if (!hasInterface && !isDedicated) then {[] execVM "fps.sqf"};
+
 if (hasInterface) then
 	{
 	waitUntil {!isNull player};

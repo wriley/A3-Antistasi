@@ -4,6 +4,9 @@ enableSaving [false,false];
 mapa setObjectTexture [0,"pic.jpg"];
 if (isServer and (isNil "serverInitDone")) then {skipTime random 24};
 
+// run on dedicated server
+if (isDedicated) then {[] execVM "fps.sqf"};
+
 if (!isMultiPlayer) then
     {
     gameMode = 1;
